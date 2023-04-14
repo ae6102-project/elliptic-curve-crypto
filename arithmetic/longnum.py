@@ -46,12 +46,11 @@ def subtract(x, y, res):
 # partial products
 @njit
 def pp(i, x, y, p):
-    temp = np.zeros((1,),'uint64')
-    c = np.zeros((1,),'uint32')
+    c = np.uint32(0)
     for j in range(32-i):
-        temp[0] = x[i]*y[j]
-        p[i+j] = c[0]+temp[0]
-        c[0] = temp[0]>>32
+        temp = np.uint64(x[i])*y[j]
+        p[i+j] = c+temp
+        c = temp>>32
 
 # multiply (uses pp and add)
 @njit
@@ -63,11 +62,11 @@ def multiply(x, y, res):
         add(temp,p,res)
         temp = res.copy()
 
-# #Usage example
-# x = 2**500
-# a = int2numpy(x)
-# b = int2numpy(x)
-# c = int2numpy(0)
+#Usage example
+x = 2**500
+a = int2numpy(x)
+b = int2numpy(x)
+c = int2numpy(0)
 
-# multiply(a,b,c)
-# print(numpy2int(c)-2**1000)
+multiply(a,b,c)
+print(numpy2int(c))
