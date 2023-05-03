@@ -1,0 +1,14 @@
+{
+  "project_name": "Automation",
+  "root": "automan",
+  "sources": [
+    "/mnt/DATA/Documents/Documents/com.moodle.moodlemobile/sites/26e191f092717338dc5bc0f63bb4539b/filepool/Sem VIII/AE6102/Project/elliptic-curve-crypto/Automation"
+  ],
+  "workers": [
+    {
+      "host": "localhost",
+      "home": "",
+      "nfs": false
+    }
+  ]
+}
