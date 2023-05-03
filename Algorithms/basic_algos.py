@@ -58,7 +58,7 @@ def MontgomeryLadder(k, P, a, p):
     bin_k = bin(k)[2:]
     l = len(bin_k)
     R0 = P
-    R1 = doubleP(P)
+    R1 = doubleP(P, a, p)
     for i in range(l-2, -1, -1):
         if(bin_k[i] == '1'):
             R1 = AddPQ(R0, R1, a, p)
